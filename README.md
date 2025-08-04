@@ -65,7 +65,7 @@ df_cleaned.rename(columns={
 df_cleaned.to_csv("cleaned_data.csv", index=False)
 
 
-## 📈 2. Exploratory Data Analysis
+### 📈 2. Exploratory Data Analysis
 
 - Line chart of obesity rate by year  
 - Trend comparison across genders  
