@@ -81,6 +81,9 @@ df.to_csv("cleaned_data.csv", index=False)
 print("\n✅ Cleaned data saved to 'cleaned_data.csv'")
 
 ```
+<img width="923" height="415" alt="Image" src="https://github.com/user-attachments/assets/65d3b3ae-d148-4029-a207-a432b8872013" />
+
+img width="662" height="161" alt="Image" src="https://github.com/user-attachments/assets/cc1009f0-77a0-4c43-ba27-03d659f6d5c6" />
 
 ### 2. 📈 Exploratory Data Analysis
 
