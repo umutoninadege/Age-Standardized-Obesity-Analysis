@@ -86,7 +86,7 @@ print("\n✅ Cleaned data saved to 'cleaned_data.csv'")
 * Line chart of obesity rate by year
 * Trend comparison across genders
 * Summary statistics and distribution analysis
-* ```python
+ ```python
   import pandas as pd
   sns.set(style="whitegrid")
 
