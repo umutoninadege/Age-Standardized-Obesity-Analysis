@@ -17,7 +17,7 @@ This project presents a comprehensive analysis of the **age-standardized prevale
 
 * Track historical trends in obesity prevalence (1990–latest)
 * Compare obesity levels by gender (MALE, FEMALE, TOTAL)
-* Predict future obesity rates for Rwanda (2026–2030)
+* Predict future obesity rates for Rwanda (2026–2031)
 * Build an interactive Power BI dashboard for decision support
 
 ---
