@@ -48,12 +48,13 @@ This project presents a comprehensive analysis of the **age-standardized prevale
 Loaded the dataset using Pandas
 ```python
 
+import pandas as pd
 df = pd.read_csv("RELAY_WHS.csv")
-
 # Step 3: Show Basic Info
 print("\n--- Dataset Info ---")
 print(df.info())
 print(df.head())
+
 
 ```
 ### 2. 🧹 Data Cleaning and Rename columns
@@ -101,7 +102,7 @@ plt.show()
 ```
 ### 3. 🤖 Forecasting
 
-Used **Linear Regression** to predict obesity rates for 2026–2030:
+Used **Linear Regression** to predict obesity rates for 2026–2031:
 
 ```python
 from sklearn.linear_model import LinearRegression
@@ -120,9 +121,10 @@ forecast = model.predict(future)
 
 ### 4. 📊 Power BI Dashboard Features
 
-* **KPI Card**: Shows the latest obesity rate (e.g., 4.92%)
+* **KPI Card**: Shows the latest obesity rate 
 * **Slicer**: Gender filter (MALE, FEMALE, TOTAL)
-* **Line Chart**: Visualizes obesity trends over time
+* **Line Chart**: Visualizes obesity trends over time in Rwanda
+* * **Line Chart**: Visualizes obesity trends over time Worldwide
 * **Forecast Visual**: 5-year prediction with confidence intervals
 * **Smart Narrative** *(optional)*: Automatically generates insights
 
