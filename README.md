@@ -129,7 +129,6 @@ forecast = model.predict(future)
 ### 4. 📊 Power BI Dashboard Features
 
 * **KPI Card**: Shows the latest obesity rate 
-* **Slicer**: Gender filter (MALE, FEMALE, TOTAL)
 * **Line Chart**: Visualizes obesity trends over time in Rwanda
 * **Line Chart**: Visualizes obesity trends over time Worldwide
 * **Forecast Visual**: 5-year prediction with confidence intervals
