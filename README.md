@@ -1,6 +1,6 @@
 # 🥗 Obesity Trend Analysis (18+ Years) – WHO Global Health Observatory
 
-**INSY 8413 – Introduction to Big Data Analytics (Final Exam Project)**
+
 This project presents a comprehensive analysis of the **age-standardized prevalence of obesity among adults (18+ years)**, using data from the **WHO Global Health Observatory**. It focuses on **Rwanda**, with optional global comparison, and combines **Python analytics** and an **interactive Power BI dashboard** to derive actionable health insights.
 
 ---
@@ -44,25 +44,41 @@ This project presents a comprehensive analysis of the **age-standardized prevale
 ---
 
 ## 🔬 Methodology
+### 1. Load Dataset
+Loaded the dataset using Pandas
+```python
 
-### 1. 🧹 Data Cleaning
+df = pd.read_csv("RELAY_WHS.csv")
+
+# Step 3: Show Basic Info
+print("\n--- Dataset Info ---")
+print(df.info())
+print(df.head())
+
+```
+### 2. 🧹 Data Cleaning and Rename columns
 
 ```python
 import pandas as pd
-df = pd.read_csv("RELAY_WHS.csv")
+df.dropna(inplace=True)  # Drop missing values
 
-# Filter Rwanda + 18+ adults
-df_cleaned = df[df["GEO_NAME_SHORT"] == "Rwanda"]
-df_cleaned = df_cleaned[df_cleaned["DIM_AGE"] == "Y_GE18"]
-
-# Rename for clarity
-df_cleaned.rename(columns={
+# Rename columns for clarity
+df.rename(columns={
     "DIM_TIME": "Year",
-    "DIM_SEX": "Gender",
     "RATE_PER_100_N": "ObesityRate"
 }, inplace=True)
 
-df_cleaned.to_csv("cleaned_data.csv", index=False)
+# Convert types
+df["Year"] = df["Year"].astype(int)
+df["ObesityRate"] = df["ObesityRate"].astype(float)
+
+# Drop duplicates if any
+df.drop_duplicates(inplace=True)
+
+# Save cleaned data for Power BI
+df.to_csv("cleaned_data.csv", index=False)
+print("\n✅ Cleaned data saved to 'cleaned_data.csv'")
+
 ```
 
 ### 2. 📈 Exploratory Data Analysis
@@ -70,7 +86,19 @@ df_cleaned.to_csv("cleaned_data.csv", index=False)
 * Line chart of obesity rate by year
 * Trend comparison across genders
 * Summary statistics and distribution analysis
+* ```python
+  import pandas as pd
+  sns.set(style="whitegrid")
 
+plt.figure(figsize=(10, 6))
+sns.lineplot(data=df, x="Year", y="ObesityRate", marker="o")
+plt.title("Obesity Prevalence Over Time in Rwanda (Age 18+)")
+plt.xlabel("Year")
+plt.ylabel("Obesity Rate (%)")
+plt.tight_layout()
+plt.savefig("obesity_trend.png")  # Saves chart as image
+plt.show()
+```
 ### 3. 🤖 Forecasting
 
 Used **Linear Regression** to predict obesity rates for 2026–2030:
@@ -100,24 +128,13 @@ forecast = model.predict(future)
 
 ---
 
-## 📁 Repository Structure
 
-```
-📂 obesity-rwanda-final-project/
-├── main.py                  # Python script
-├── cleaned_data.csv         # Preprocessed dataset
-├── obesity_trend.png        # Line chart image
-├── forecast.png             # Forecasted values chart
-├── obesity_dashboard.pbix   # Power BI dashboard file
-└── README.md                # Project documentation
-```
-
----
 
 ## 📊 Key Findings
 
 * Rwanda’s obesity rate among adults (18+) is **steadily increasing**
-* Most recent total obesity rate: **4.92%**
+* Most recent total obesity rate in Rwanda: **4.92%**
+* * Most recent total obesity rate worldwide: **80.39%**
 * Male vs. Female differences observed in various years
 * Forecast suggests a **continued upward trend** through 2030
 
@@ -135,31 +152,12 @@ forecast = model.predict(future)
 
 * Compare trends with regional neighbors (e.g., Kenya, Uganda)
 * Add dietary/lifestyle data for deeper insights
-* Publish dashboard online via **Power BI Service** or **Streamlit**
+* Publish dashboard online via **Power BI Service** 
 
----
 
-## 🎓 Submission Info
 
-* **Course**: INSY 8413 – Introduction to Big Data Analytics
-* **Instructor**: Eric Maniraguha
-* **Student**: Umutoni Nadege
-* **Final Exam Score**: /40
-* **Date**: August 2025
 
----
 
-## 📬 Contact
 
-* **Email**: [umutoninadege5@gmail.com](mailto:umutoninadege5@gmail.com)
-* **GitHub**: [@umutoninadege](https://github.com/umutoninadege)
-* **LinkedIn**: [Nadege Umutoni](https://www.linkedin.com/in/nadege-umutoni-456a61318)
-
----
-
-## 🙏 Reflective Verse
-
-> “Whatever you do, work at it with all your heart, as working for the Lord…”
-> — *Colossians 3:23*
 
 This project reflects not only technical growth but also a commitment to meaningful work that supports public health.
