@@ -64,3 +64,56 @@ df_cleaned.rename(columns={
 
 df_cleaned.to_csv("cleaned_data.csv", index=False)
 
+
+📈 Exploratory Data Analysis
+.Line chart of obesity rate by year
+
+.Trend comparison across genders
+
+.Summary statistics
+🤖 Forecasting
+Used Linear Regression to predict obesity rates for 2026–2030:
+from sklearn.linear_model import LinearRegression
+```python
+X = df_cleaned[["Year"]]
+y = df_cleaned["ObesityRate"]
+model = LinearRegression()
+model.fit(X, y)
+
+# Predict future years
+future = pd.DataFrame({"Year": range(2026, 2031)})
+forecast = model.predict(future)
+
+4. 📊 Power BI Dashboard
+KPI Card: Shows latest obesity rate
+
+Slicer: Gender filter (MALE, FEMALE, TOTAL)
+
+Line Chart: Obesity trends over time
+
+Forecast Visual: 5-year projection
+
+Smart Narrative (optional): Automatic insights
+
+📈 Key Findings
+Rwanda’s obesity rate among adults (18+) is steadily increasing
+
+In the most recent year, total rate: 4.92%
+
+Male vs. Female differences observed across multiple years
+
+Forecast suggests a continued upward trend through 2030
+
+💡 Recommendations
+🧠 Launch awareness programs targeting adult populations
+
+📊 Prioritize female-targeted health interventions if trend continues
+
+📈 Monitor obesity as a risk factor for non-communicable diseases (NCDs)
+
+🌟 Future Work
+Compare Rwanda to regional neighbors (e.g., Kenya, Uganda)
+
+Add dietary/lifestyle data if available
+
+Deploy public-facing dashboard using Power BI Service or Streamlit
