@@ -100,6 +100,7 @@ plt.tight_layout()
 plt.savefig("obesity_trend.png")  # Saves chart as image
 plt.show()
 ```
+<img width="667" height="428" alt="Image" src="https://github.com/user-attachments/assets/4a7beb89-9f30-4f42-b195-f74b4baafb03" />
 ### 3. 🤖 Forecasting
 
 Used **Linear Regression** to predict obesity rates for 2026–2031:
@@ -118,13 +119,14 @@ model.fit(X, y)
 future = pd.DataFrame({"Year": range(2026, 2031)})
 forecast = model.predict(future)
 ```
+<img width="953" height="524" alt="Image" src="https://github.com/user-attachments/assets/e29431b9-f615-44a1-a467-f054ab7e0407" />
 
 ### 4. 📊 Power BI Dashboard Features
 
 * **KPI Card**: Shows the latest obesity rate 
 * **Slicer**: Gender filter (MALE, FEMALE, TOTAL)
 * **Line Chart**: Visualizes obesity trends over time in Rwanda
-* * **Line Chart**: Visualizes obesity trends over time Worldwide
+* **Line Chart**: Visualizes obesity trends over time Worldwide
 * **Forecast Visual**: 5-year prediction with confidence intervals
 * **Smart Narrative** *(optional)*: Automatically generates insights
 
