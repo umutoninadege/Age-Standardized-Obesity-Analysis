@@ -65,16 +65,21 @@ df_cleaned.rename(columns={
 df_cleaned.to_csv("cleaned_data.csv", index=False)
 
 
-📈 Exploratory Data Analysis
-.Line chart of obesity rate by year
+ 📈 Exploratory Data Analysis
+Line chart of obesity rate by year
 
-.Trend comparison across genders
+Trend comparison across genders
 
-.Summary statistics
-🤖 Forecasting
+Summary statistics
+
+3. 🤖 Forecasting
 Used Linear Regression to predict obesity rates for 2026–2030:
+
+python
+Copy
+Edit
 from sklearn.linear_model import LinearRegression
-```python
+
 X = df_cleaned[["Year"]]
 y = df_cleaned["ObesityRate"]
 model = LinearRegression()
@@ -83,7 +88,6 @@ model.fit(X, y)
 # Predict future years
 future = pd.DataFrame({"Year": range(2026, 2031)})
 forecast = model.predict(future)
-
 4. 📊 Power BI Dashboard
 KPI Card: Shows latest obesity rate
 
@@ -95,6 +99,17 @@ Forecast Visual: 5-year projection
 
 Smart Narrative (optional): Automatic insights
 
+📁 Repository Structure
+php
+Copy
+Edit
+📂 obesity-rwanda-final-project/
+├── main.py                        # Python script
+├── cleaned_data.csv               # Preprocessed dataset
+├── obesity_trend.png              # Line chart
+├── forecast.png                   # Forecasted values
+├── obesity_dashboard.pbix         # Power BI dashboard
+└── README.md                      # Project documentation
 📈 Key Findings
 Rwanda’s obesity rate among adults (18+) is steadily increasing
 
@@ -117,3 +132,4 @@ Compare Rwanda to regional neighbors (e.g., Kenya, Uganda)
 Add dietary/lifestyle data if available
 
 Deploy public-facing dashboard using Power BI Service or Streamlit
+
